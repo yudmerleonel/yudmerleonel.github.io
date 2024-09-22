@@ -19,7 +19,7 @@ voiceButton.addEventListener("click", () => {
         
         // Respuestas predefinidas según el mensaje
         if (message.toLowerCase().includes("hola")) {
-            speak("¡Hola!, señorita violeta ramirez, Soy Alicia, soy una inteligencia artificial que tu enamorado Leonel creó con mucho cariño. Hoy me pidió que te recordara algo muy importante: te ama más que la vaca ama el pasto... ¡muuuuucho! Y como si eso no fuera suficiente, siempre está trabajando en mejorarme, pero en realidad solo tiene una cosa en la cabeza: ¡tú! Así que felicidades, porque tienes un fan número uno que piensa en ti todo el tiempo, mientras me programa y mientras sueña despierto. feliz 21 de setiembre por parte de mi creador ");
+            speak("¡Hola!, señorita violeta, Soy Alicia, soy una inteligencia artificial que el loco de tu enamorado Leonel flores, creó con mucho cariño. Hoy me pidió que te recordara algo muy importante: te ama más que la vaca... ¡muuuuuuuuuuucho! Y como si eso no fuera suficiente, siempre está trabajando en mejorarme, pero en realidad solo tiene una cosa en la cabeza: ¡tú! Así que felicidades, porque tienes un fan número uno que piensa en ti todo el tiempo, mientras me programa y mientras sueña despierto. feliz 21 de setiembre por parte de mi creador leonel flores ");
         } else if (message.toLowerCase().includes("cómo estás")) {
             speak("Estoy bien, gracias por preguntar.");
         } else {
