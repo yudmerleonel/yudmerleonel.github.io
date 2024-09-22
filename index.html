@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente de Voz Mejorado</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fbe7; /* Color de fondo amarillo claro */
+            color: #33691e; /* Verde oscuro */
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            animation: slideIn 0.5s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #7b9e1b; /* Verde claro */
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+            animation: bounceIn 1s;
+        }
+
+        h3 {
+            margin: 20px 0;
+            color: #0a0a0a; /* Negro suave */
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            font-size: 1.2em;
+            border: 2px solid #aeea00; /* Borde verde claro */
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            animation: fadeIn 1s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ffeb3b; /* Borde amarillo claro */
+        }
+
+        button {
+            background-color: #aeea00; /* Verde claro */
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            animation: fadeIn 1.5s;
+        }
+
+        button:hover {
+            background-color: #ffeb3b; /* Amarillo claro */
+            color: #33691e; /* Texto verde oscuro */
+            transform: scale(1.05);
+        }
+
+        button:active {
+            background-color: #7b9e1b; /* Verde oscuro */
+            transform: scale(1);
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            color: #33691e; /* Verde oscuro */
+            animation: fadeIn 2s;
+        }
+
+        /* Flores tipo girasol en el contorno */
+        .flower {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img.freepik.com/foto-gratis/flor-amarilla-fondo-blanco_1203-2149.jpg'); /* URL de imagen de girasol */
+            background-size: cover;
+            animation: rotate 10s linear infinite, bob 2s ease-in-out infinite; /* Animaciones */
+            z-index: 0; /* Asegúrate de que las flores estén detrás del contenedor */
+        }
+
+        /* Nuevas posiciones de las flores */
+        .flower1 { top: -10px; left: 10px; }
+        .flower2 { top: 10px; left: 50%; }
+        .flower3 { top: -10px; right: 10px; }
+        .flower4 { top: 50%; left: -10px; }
+        .flower5 { top: 50%; right: -10px; }
+        .flower6 { bottom: -10px; left: 10px; }
+        .flower7 { bottom: -10px; left: 50%; }
+        .flower8 { bottom: -10px; right: 10px; }
+        .flower9 { top: 100%; left: 40%; transform: translateY(-100%); }
+        .flower10 { top: 100%; left: 70%; transform: translateY(-100%); }
+        .flower11 { bottom: 100%; left: 30%; transform: translateY(100%); }
+        .flower12 { bottom: 100%; left: 60%; transform: translateY(100%); }
+        /* Ajusta las posiciones según sea necesario para un mejor efecto */
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes bounceIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            button {
+                width: 90%;
+                padding: 12px;
+                font-size: 1.2em;
+                margin-top: 15px;
+            }
+
+            input[type="text"] {
+                font-size: 1em;
+                padding: 10px;
+            }
+
+            p {
+                font-size: 1.2em;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <i class="fas fa-microphone icon"></i>
+        <h1>Asistente de Voz Alicia</h1>
+        <h3>Ingresa tu pregunta:</h3>
+        <input type="text" id="userInput" placeholder="Escribe aquí tu pregunta...">
+        
+        <div class="radio-group">
+           <h3>Escribe Hola y escucha atentamente </h3>
+        </div>
+
+        <button id="voiceButton">Enviar mensaje</button>
+        <p id="output"></p>
+    </div>
+
+    <!-- Flores tipo girasol en el contorno -->
+    <div class="flower flower1"></div>
+    <div class="flower flower2"></div>
+    <div class="flower flower3"></div>
+    <div class="flower flower4"></div>
+    <div class="flower flower5"></div>
+    <div class="flower flower6"></div>
+    <div class="flower flower7"></div>
+    <div class="flower flower8"></div>
+    <div class="flower flower9"></div>
+    <div class="flower flower10"></div>
+    <div class="flower flower11"></div>
+    <div class="flower flower12"></div>
+    <div class="flower flower13"></div>
+    <div class="flower flower14"></div>
+    <div class="flower flower15"></div>
+    <div class="flower flower16"></div>
+    <div class="flower flower17"></div>
+    <div class="flower flower18"></div>
+    <div class="flower flower19"></div>
+    <div class="flower flower20"></div>
+    <div class="flower flower21"></div>
+    <div class="flower flower22"></div>
+    <div class="flower flower23"></div>
+    <div class="flower flower24"></div>
+    <div class="flower flower25"></div>
+    <div class="flower flower26"></div>
+    <div class="flower flower27"></div>
+    <div class="flower flower28"></div>
+    <div class="flower flower29"></div>
+    <div class="flower flower30"></div>
+    <div class="flower flower31"></div>
+    <div class="flower flower32"></div>
+    <div class="flower flower33"></div>
+    <div class="flower flower34"></div>
+    <div class="flower flower35"></div>
+    <div class="flower flower36"></div>
+    <div class="flower flower37"></div>
+    <div class="flower flower38"></div>
+    <div class="flower flower39"></div>
+    <div class="flower flower40"></div>
+
+    <script src="funcion/cerebro.js"></script>
+</body>
+</html>
